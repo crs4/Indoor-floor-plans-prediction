@@ -1,6 +1,5 @@
 ckpt/
 __pycache__/
-data/
 checkpoints/
 .vs/
 wandb/
