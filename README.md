@@ -7,7 +7,7 @@ We exploit camera registration to put all Nadir projections in the same referenc
 Given this joined representation, we adopt an encoder-decoder transformed-based architecture to process relationships between Nadir projections and predict the final room shapes (Nadir maps), adopting a two-level queries (i.e., room polygons- room corners) embedding. As a final result, we obtain the predicted room polygons.
 
 ## Python Requirements
-See the file [requirements.txt]
+See the file [requirements.txt](requirements.txt)
 
 ## Pre-requisited
  * Compile the deformable-attention modules (from [deformable-DETR](https://github.com/fundamentalvision/Deformable-DETR)) and the differentiable rasterization module (from [BoundaryFormer](https://github.com/mlpc-ucsd/BoundaryFormer)):
