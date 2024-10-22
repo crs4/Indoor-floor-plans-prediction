@@ -551,7 +551,7 @@ def config_s3d():
     a.add_argument('--output', default='./results/s3d_nadirmaps', type=str, help='path to output folder')
     a.add_argument('--device', default='cuda', type=str, help='processor device')
     a.add_argument('--encode_heightmap', default=False, type=bool, help='encode ceiling heightmap')
-    a.add_argument('--pth', default='./nadirshape/ckpt/DEMO_RUNS/s3d_combo_depth_layout_floor_mhsa_lgt_loss_masked/best_valid.pth', type=str, help='d2l pth')###n
+    a.add_argument('--pth', default='./nadirshape/ckpt/DEMO_RUNS/s3d_depth/best_valid.pth', type=str, help='d2l pth')###n
     a.add_argument('--data_type', default='s3d', type=str, help='dataset s3d or zind')
     a.add_argument('--save_metric', default=True, type=bool, help='save metric information')
     a.add_argument('--split_file', default='', type=str, help='train/val/test splitting')###nb only for zind    

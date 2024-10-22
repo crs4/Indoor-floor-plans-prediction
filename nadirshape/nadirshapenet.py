@@ -641,7 +641,7 @@ class NadirShapeNet(nn.Module):
     x_std = torch.FloatTensor(np.array([0.229, 0.224, 0.225])[None, :, None, None])
 
     def __init__(self, backbone, full_size = True, sparse_encoder = False, compression_type='mhsa', ref_type = 'none', max_size = 1024, 
-                 freeze_layout = False, seg_pth='./nadirshape/ckpt/DEMO_RUNS/resnet18_B8_s3d_unet_layers_32/best_valid.pth'):
+                 freeze_layout = False, seg_pth='./nadirshape/ckpt/DEMO_RUNS/clutter_mask/best_valid.pth'):
         super(NadirShapeNet, self).__init__()
         self.backbone = backbone
         self.ch_scale = 4  

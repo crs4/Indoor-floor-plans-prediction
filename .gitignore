@@ -4,8 +4,8 @@ checkpoints/
 .vs/
 wandb/
 env/
-diff_ras/
 logs/
 output*
 nadirshape/temp/
 wandb_keys/
+diff_ras/

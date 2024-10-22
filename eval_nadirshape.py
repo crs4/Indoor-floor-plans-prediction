@@ -24,7 +24,7 @@ from nadirshape.nadirshapenet import NadirShapeNet, load_trained_model
 
 
 
-def_pth ='./nadirshape/ckpt/DEMO_RUNS/s3d_combo_depth_layout_floor_mhsa_lgt_loss_masked/best_valid.pth' ###
+def_pth ='./nadirshape/ckpt/DEMO_RUNS/s3d_depth/best_valid.pth' ###
 
 def_output_dir = 'results/'
 
