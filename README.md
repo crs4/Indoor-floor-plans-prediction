@@ -41,12 +41,28 @@ To be copied in your local ./checkpoints directories.
 [FIXME]
 
 ## Usage
-To test prediction of single image depth and floorplan footprint run (example): 
+To test prediction of single image depth and its Nadir shape run (example): 
 ```
 python eval_nadirshape.py --pth ./nadirshape/ckpt/DEMO_RUNS/s3d_depth/best_valid.pth --root_dir ./data/s3d_single/test/  
 ```    
     - `--pth` path to the trained model.
     - `--root_dir` path to the input equirectangular scene.
+    - `--output_dir` path to the output results.
+
+To generate Nadir maps from a set of omnidirectional images run (example): 
+```
+python generate_nadirmaps.py --pth ./nadirshape/ckpt/DEMO_RUNS/s3d_depth/best_valid.pth --data_dir ./data/s3d_floor  
+```    
+    - `--pth` path to the trained model.
+    - `--data_dir` path to the input scene (registered images).
+    - `--output_dir` path to the output results.
+
+To predict a floorplan as a set of rooms polygons run (example): 
+```
+python eval_nadirfloor.py --pth checkpoints/DEMO_RUNS/nadirfloornet_s3d.pth --dataset_dir ./results/s3d_nadirmaps  
+```    
+    - `--pth` path to the trained model.
+    - `--dataset_dir` path to the input scene (registered images).
     - `--output_dir` path to the output results.
 
 ## Acknowledgements
