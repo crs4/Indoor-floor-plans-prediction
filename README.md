@@ -28,10 +28,16 @@ We suggest to create a Python virtual environment and installing all the essenti
 ## Data
 
 To test single image depth estimation and its floorplan footprint estimation we provide a panoramic indoor scene from [Structured3D](https://structured3d-dataset.org/) at [data/s3d_single/test](data/s3d_single/test) .
-To test floorplan reconstruction we provide an exemple scene from [Structured3D](https://structured3d-dataset.org/) at [data/s3d_floor], which includes as input 9 panoramic images from which an entire multi-room floor plan is reconstructed.
+To test floorplan reconstruction we provide an exemple scene from [Structured3D](https://structured3d-dataset.org/) at [data/s3d_floor](data/s3d_floor), which includes as input 9 panoramic images from which an entire multi-room floor plan is reconstructed.
 
 ## Usage
-
+To test prediction of single image depth and floorplan footprint run: 
+```
+python eval_nadirshape.py --pth ./nadirshape/ckpt/DEMO_RUNS/s3d_depth/best_valid.pth --root_dir ./data/s3d_single/test/  
+```    
+    - `--pth` path to the trained model.
+    - `--root_dir` path to the input equirectangular scene.
+    - `--output_dir` path to the output results.
 
 ## Acknowledgements
 We acknowledge the support of the PNRR ICSC National Research Centre for High Performance Computing, Big Data and Quantum Computing (CN00000013), under the NRRP MUR program funded by the NextGenerationEU.
