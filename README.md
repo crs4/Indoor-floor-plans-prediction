@@ -23,6 +23,7 @@ We suggest to create a Python virtual environment and installing all the essenti
 # python -m venv .env
 # source .env/bin/activate
 # pip install -r requirements.txt
+```
 
 ## Acknowledgements
 We acknowledge the support of the PNRR ICSC National Research Centre for High Performance Computing, Big Data and Quantum Computing (CN00000013), under the NRRP MUR program funded by the NextGenerationEU.
