@@ -33,7 +33,7 @@ ENCODER_RESNET = [
 
 
 def load_trained_model(Net, path):
-    state_dict = torch.load(path, map_location='cpu')
+    state_dict = torch.load(path, map_location='cpu', weights_only=False)
     net = Net(**state_dict['kwargs'])
     net.load_state_dict(state_dict['state_dict'])
     return net 
@@ -170,7 +170,7 @@ class SegNet(nn.Module):
         return logits
 
 def load_segnet_trained_model(Net, path):
-    state_dict = torch.load(path, map_location='cpu')
+    state_dict = torch.load(path, map_location='cpu', weights_only=False)
     net = Net(**state_dict['kwargs'])
     net.load_state_dict(state_dict['state_dict'])
     return net    

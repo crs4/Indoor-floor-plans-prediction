@@ -9,3 +9,6 @@ output*
 nadirshape/temp/
 wandb_keys/
 diff_ras/
+.env/
+models/ops/
+results*

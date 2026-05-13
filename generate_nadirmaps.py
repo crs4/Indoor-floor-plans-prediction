@@ -571,11 +571,11 @@ def merge_nadir_shapes(args):
     ### prepare
     outFolder = args.output
     if not os.path.exists(outFolder):
-        os.mkdir(outFolder)
+        os.makedirs(outFolder)
 
     annotation_outFolder = os.path.join(outFolder, 'annotations')
     if not os.path.exists(annotation_outFolder):
-        os.mkdir(annotation_outFolder)
+        os.makedirs(annotation_outFolder)
             
     train_img_folder = os.path.join(outFolder, 'train')
     val_img_folder = os.path.join(outFolder, 'val')
@@ -583,7 +583,7 @@ def merge_nadir_shapes(args):
 
     for img_folder in [train_img_folder, val_img_folder, test_img_folder]:
         if not os.path.exists(img_folder):
-            os.mkdir(img_folder)
+            os.makedirs(img_folder)
 
     coco_train_json_path = os.path.join(annotation_outFolder, 'train.json')
     coco_val_json_path = os.path.join(annotation_outFolder, 'val.json')
