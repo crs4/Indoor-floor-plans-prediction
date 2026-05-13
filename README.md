@@ -1,10 +1,33 @@
-This repository provides work-in-progress code, data and pretrained models for a deep-learning approach for predicting complex indoor floor plans from registered omnidirectional images.
+# NadirFloorNet: Reconstructing Multi-Room Floorplans from Registered Panoramic Images
 
-##Overview
-The approach assumes as input a set of spatially registered and vertically aligned equirectangular images. 
-For each input image, a depth and room shape prediction module, an end-to-end neural network predicting an intermediate clutter-free depth map of the scene and a segmented floor projection (i.e, Nadir shape) of the predicted uncluttered room.
-We exploit camera registration to put all Nadir projections in the same reference floor plan.
-Given this joined representation, we adopt an encoder-decoder transformed-based architecture to process relationships between Nadir projections and predict the final room shapes (Nadir maps), adopting a two-level queries (i.e., room polygons- room corners) embedding. As a final result, we obtain the predicted room polygons.
+**NadirFloorNet** is a deep-learning framework for reconstructing complex indoor multi-room floorplans from a small set of spatially registered panoramic images.
+
+This repository provides demo code, example data, and pretrained models related to the official paper:
+
+**NadirFloorNet: Reconstructing Multi-Room Floorplans from a Small Set of Registered Panoramic Images**  
+Giovanni Pintore, Uzair Shah, Marco Agus, Enrico Gobbetti  
+Proc. CVPR, 2025
+
+The method predicts indoor floorplans by combining single-panorama room-shape estimation with a multi-view floorplan reconstruction stage. Given a set of registered and vertically aligned equirectangular images, the pipeline first predicts clutter-free depth and local floor-projection representations, called **Nadir shapes**, for each panorama. These local predictions are then transformed into a common floorplan reference frame using the known camera registration. A transformer-based encoder-decoder architecture processes the resulting set of Nadir maps and predicts the final room polygons of the reconstructed multi-room floorplan.
+
+Keywords: **NadirFloorNet**, **NadirFloorNet GitHub**, **multi-room floorplan reconstruction**, **indoor reconstruction**, **panoramic images**, **360 images**, **equirectangular images**, **registered panoramas**, **deep learning**, **computer vision**.
+
+---
+
+## Overview
+
+The approach assumes as input a set of spatially registered and vertically aligned equirectangular panoramic images.
+
+For each input image, a depth and room-shape prediction module estimates:
+
+- an intermediate clutter-free depth map of the scene;
+- a segmented floor projection, referred to as a **Nadir shape**, representing the predicted uncluttered room footprint.
+
+We exploit camera registration to place all Nadir projections in the same reference floorplan coordinate system.
+
+Given this joined representation, we adopt a transformer-based encoder-decoder architecture to process relationships between Nadir projections and predict the final room shapes, using a two-level query embedding representation, namely room polygons and room corners.
+
+As a final result, the method outputs the predicted room polygons forming the reconstructed multi-room floorplan.
 
 ## Python Requirements
 See the file [requirements.txt](requirements.txt)
@@ -37,8 +60,30 @@ To test single image depth estimation and its floorplan footprint estimation we 
 To test floorplan reconstruction we provide an exemple scene from [Structured3D](https://structured3d-dataset.org/) at [data/s3d_floor](data/s3d_floor), which includes as input 9 panoramic images from which an entire multi-room floor plan is reconstructed.
 
 ## Download Pretrained Models
-To be copied in your local ./checkpoints directories.
-[FIXME]
+
+Pretrained weights for a **pre-print/project version** of NadirFloorNet are available on Hugging Face:
+
+[Download the pretrained weights from Hugging Face](https://huggingface.co/giannpint/NadirFloorNet-weights)
+
+Please download the checkpoint files manually from the **Files and versions** tab of the Hugging Face repository and copy them into your local checkpoint directories.
+
+Depending on the script being used, the checkpoints should be placed for example in:
+
+```text
+./checkpoints/
+```
+
+or:
+
+```text
+./nadirshape/ckpt/DEMO_RUNS/
+./checkpoints/DEMO_RUNS/
+```
+
+> **Important note:**  
+> The pretrained weights hosted on Hugging Face refer to a **pre-print/project version** developed within the PNRR ICSC project. They are **not** the weights used to produce the official quantitative and qualitative results reported in the published CVPR 2025 paper.
+
+These weights are provided to support reproducibility, experimentation, and further research related to the pre-print/project version of the method.
 
 ## Usage
 To test prediction of single image depth and its Nadir shape run (example): 
@@ -67,4 +112,21 @@ python eval_nadirfloor.py --pth checkpoints/DEMO_RUNS/nadirfloornet_s3d.pth --da
 
 ## Acknowledgements
 We acknowledge the support of the PNRR ICSC National Research Centre for High Performance Computing, Big Data and Quantum Computing (CN00000013), under the NRRP MUR program funded by the NextGenerationEU.
+
+## Paper
+
+If you use this code, data, or pretrained weights, please cite the official paper:
+
+```bibtex
+@inproceedings{Pintore:2025:NRM,
+  author =        {Pintore, Giovanni and Shah, Uzair and Agus, Marco and
+                   Gobbetti, Enrico},
+  booktitle =     {Proc. CVPR},
+  pages =         {1985--1994},
+  title =         {{NadirFloorNet}: reconstructing multi-room floorplans
+                   from a small set of registered panoramic images},
+  year =          {2025},
+  doi =           {10.1109/CVPRW67362.2025.00186},
+}
+
  
